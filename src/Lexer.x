@@ -53,11 +53,6 @@ tokens :-
     |  "my" $space $lowercase+                                     
     |  "your" $space $lowercase+                                { \p s -> TokenPosn (CommonVariable s) p }
 
-    -- Proper variables
-    -- Note that proper variables such as "Mister Sandman" are parsed as two separate proper variables.
-    -- For more information, read the known issues.
-    $uppercase $lowercase+                                      { \p s -> TokenPosn (ProperVariable s) p }
-
     -- Pronouns
       "it"                                                        
     | "he"                                                        
@@ -130,6 +125,13 @@ tokens :-
     "Give back"                                                 { \p s -> TokenPosn (GiveBack) p }
     "taking"                                                    { \p s -> TokenPosn (Taking) p }        
     ","                                                         { \p s -> TokenPosn (Comma) p}
+
+
+    -- Proper variables
+    -- Note that proper variables such as "Mister Sandman" are parsed as two separate proper variables.
+    -- For more information, read the known issues.
+    $uppercase $lowercase+                                      { \p s -> TokenPosn (ProperVariable s) p }
+
 
     -- Whitespace to be ignored
     $white+                                                     ;
