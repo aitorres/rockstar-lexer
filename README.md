@@ -17,14 +17,19 @@ You can find the *Rockstar programming language* specification [here (dylanbeatt
 After cloning the repository,
 ```bash
 cd rockstar-lexer
-cabal build
-cabal install
+stack build --fast
 ```
+It will prompt you the path to executable.
 
 ## Usage
+
 If you want to analyse a file, use
 ```bash
-rockstar-lexer filepath 
+/PATH_TO_EXECUTABLE/rockstar-lexer filepath 
+```
+or
+```bash
+stack exec -- rockstar-lexer filepath
 ```
 where *filepath* is an absolute or relative path to the file you want to analyse.
 

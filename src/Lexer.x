@@ -132,6 +132,7 @@ tokens :-
     -- For more information, read the known issues.
     $uppercase $lowercase+                                      { \p s -> TokenPosn (ProperVariable s) p }
 
+    
 
     -- Whitespace to be ignored
     $white+                                                     ;
